@@ -1,0 +1,34 @@
+{
+  "name": "size-table",
+  "version": "0.1.0",
+  "description": "automagically display the size of your module at various levels of compression in your readme",
+  "bin": "bin/size-table",
+  "dependencies": {
+    "markdown-table": "~0.4.0",
+    "mdast": "~2.3.0",
+    "minimist": "~1.2.0",
+    "pretty-bytes": "~2.0.1",
+    "readme-filenames": "~1.0.0",
+    "sizeist": "~1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:michaelrhodes/size-table"
+  },
+  "keywords": [
+    "module",
+    "size",
+    "table",
+    "readme"
+  ],
+  "author": "Michael Rhodes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelrhodes/size-table/issues"
+  },
+  "homepage": "https://github.com/michaelrhodes/size-table"
+}

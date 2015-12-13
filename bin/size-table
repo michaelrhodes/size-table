@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+var fs = require('fs')
+var minimist = require('minimist')
+var get = require('../get-readme')
+var make = require('../make-table')
+var insert = require('../insert-table')
+var cwd = process.cwd()
+
+var argv = minimist(process.argv.slice(2))
+
+if (argv.help || argv.h) {
+  console.log('insert-size-table [name] [--readme --stdout --help]')
+  process.exit(0)
+}
+
+var readme = argv.readme || argv.r || get(cwd)
+
+if (!readme) {
+  console.error('No README found')
+  process.exit(1)
+}
+
+make(process.stdin, argv._[0], function (err, table) {
+  var _readme = fs.readFileSync(readme, 'utf8')
+  var md = insert(table, _readme)
+
+  !argv.stdout && !argv.s ?
+    fs.writeFileSync(readme, md, 'utf8') :
+    console.log(md)
+
+  process.exit(0)
+})
