@@ -22,14 +22,14 @@ The first time this command is run, a size table will be inserted before the fir
 
 It looks like this:
 
-| compression      |  size |
-| :--------------- | ----: |
-| bundle.js        | 746 B |
-| bundle.min.js    | 606 B |
-| bundle.min.js.gz | 328 B |
+| compression          |  size |
+| :------------------- | ----: |
+| size-table.js        | 771 B |
+| size-table.min.js    | 631 B |
+| size-table.min.js.gz | 348 B |
 
 
-Note that by default, the filename will be “bundle.” You can customise that by providing your desired name as the first argument:
+Note that by default, the filename will be `package.name` as found in your package.json, falling back to “bundle” if a package.json cannot be found. You can override this behaviour by providing your desired name as the first argument:
 
 ```sh
 $ cat bundle.js | size-table my-module
@@ -45,10 +45,10 @@ Note that all subsequent invocations of the command will update the existing tab
 
 ### Advanced (sort of, but not really)
 
-size-table should be able to find your README file if it exists in your working directory. If it doesn’t, you can specify its location like so:
+size-table should be able to find your README and packge.json files if they exists in the working directory. If it can’t, you can specify correct directory to search like so:
 
 ```sh
-$ cat bundle.js | size-table --readme=weird-readme.md
+$ cat bundle.js | size-table --cwd=../elsewhere
 ```
 
 Finally, if you don’t want size-table to overwrite your README file, you can have the mutated document sent directly to stdout by using the following flag:

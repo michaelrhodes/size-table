@@ -1,6 +1,6 @@
 {
   "name": "size-table",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "automagically display the size of your module at various levels of compression in your readme",
   "bin": "bin/size-table",
   "dependencies": {
